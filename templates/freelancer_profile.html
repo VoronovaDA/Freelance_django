@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freelancer Profile</title>
+</head>
+<body>
+    <h1>Профиль исполнителя</h1>
+    <p>Контактная информация: {{ profile.contact_info }}</p>
+    <p>ФИО исполнителя: {{ profile.name }}</p>
+    <p>Опыт работы: {{ profile.experience }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ profile.name }}">
+        <label for="contact_info">Contact Information:</label>
+        <input type="text" name="contact_info" value="{{ profile.contact_info }}">
+        <label for="experience">Experience:</label>
+        <input type="number" name="experience" value="{{ profile.experience }}">
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

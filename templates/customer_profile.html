@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Profile</title>
+</head>
+<body>
+    <h1>Профиль заказчика</h1>
+    <p>Компания: {{ profile.company }}</p>
+    <p>ФИО заказчика: {{ profile.name }}</p>
+    <p>Техническое задание: {{ profile.order_description }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="company">Company:</label>
+        <input type="text" name="company" value="{{ profile.company }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ profile.name }}">
+        <label for="order_description">Order Description:</label>
+        <textarea name="order_description">{{ profile.order_description }}</textarea>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
